@@ -30,4 +30,6 @@ app.get('/api/search', (req, res) => {
     .catch(err => console.log(err));
 })
 
-app.listen(3001, () => console.log('server is running'));
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`server is running on ${process.env.PORT}`)
+});
