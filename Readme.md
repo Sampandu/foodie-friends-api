@@ -13,3 +13,5 @@ Foodie-Friends-api is an api that fetches restaurants data from Yelp api.
 5. Run `npm install`.
 
 6. Run `npm start`.
+
+Please fill in your Yelp's api key before using
