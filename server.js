@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-const apikey = '2u2d9VILWvjODb79fEZ4y1mXe8B4NfLAY9g2bIGEwMQdbN6ZtBZTScblejzr_vG0vgbtpEvB9IdsUHCPllt3edbnwov_RS4VCbPnF3HhxXa5pBnr4vAJ6Q5ZjDrLW3Yx';
+const apikey = '<your-api>';
 const client = yelp.client(apikey);
 
 app.get('/api/search', (req, res) => {
@@ -30,4 +30,6 @@ app.get('/api/search', (req, res) => {
     .catch(err => console.log(err));
 })
 
-app.listen(3001, () => console.log('server is running'));
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`server is running on ${process.env.PORT}`)
+});
