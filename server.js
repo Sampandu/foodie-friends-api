@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const yelp = require('yelp-fusion');
-const { apiKey } = process.env || require('./secret');
+const apikey = process.env.apikey || require('./secret');
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const client = yelp.client(apiKey);
+const client = yelp.client(apikey);
 
 app.get('/api/search', (req, res) => {
   const requestLocation = req.query.location;
@@ -34,7 +34,7 @@ app.get('/api/search', (req, res) => {
       term: 'restaurants',
       latitude: latitude,
       longitude: longitude,
-      radius: 5000,
+      radius: 2000,
       limit: 20,
       offset: requestOffset,
     };
